@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Gartic — Draw</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <script src="/socket.io/socket.io.js"></script>
+  <link rel="stylesheet" href="/css/styles.css">
+  <script defer src="https://kit.fontawesome.com/a2d9b5f2e0.js" crossorigin="anonymous"></script>
+  <style>
+    body{margin:0;background:#0b1220;color:#e6eef6;font-family:Inter,Arial}
+    .layout{display:flex;height:100vh;padding:12px;gap:12px;box-sizing:border-box}
+    .stage-outer{background:#6b717633;flex:1;display:flex;align-items:center;justify-content:center;padding:20px}
+    .canvas-holder{background:#d1d5db;max-width:1000px;width:90vmin;aspect-ratio:1/1;border-radius:8px;box-shadow:0 10px 30px rgba(0,0,0,0.6);display:flex;align-items:center;justify-content:center}
+    .controls{width:360px;display:flex;flex-direction:column;gap:12px}
+    .toolbar-row{display:flex;gap:8px;align-items:center}
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <div class="stage-outer">
+      <div class="canvas-holder" id="canvasHolder">
+        <canvas id="display" style="width:100%;height:100%;touch-action:none;"></canvas>
+        <canvas id="backing" style="display:none"></canvas>
+      </div>
+    </div>
+    <div class="controls">
+      <div class="toolbar-row">
+        <button id="btnBrush" class="tool-btn tool-active"><i class="fa-solid fa-pencil"></i> Brush</button>
+        <button id="btnBucket" class="tool-btn"><i class="fa-solid fa-fill"></i> Bucket</button>
+        <button id="btnEraser" class="tool-btn"><i class="fa-solid fa-eraser"></i> Eraser</button>
+        <button id="btnPicker" class="tool-btn"><i class="fa-solid fa-eye-dropper"></i> Picker</button>
+      </div>
+      <div class="toolbar-row">
+        <label>Size</label>
+        <input id="size" type="range" min="1" max="100" value="12" style="flex:1">
+        <div id="sizeVal">12</div>
+      </div>
+      <div class="toolbar-row">
+        <label>Color</label>
+        <input id="color" type="color" value="#000000">
+        <div style="display:flex;gap:6px">
+          <div class="tool-btn" id="undo"><i class="fa-solid fa-arrow-rotate-left"></i></div>
+          <div class="tool-btn" id="redo"><i class="fa-solid fa-arrow-rotate-right"></i></div>
+          <div class="tool-btn" id="clear"><i class="fa-solid fa-trash"></i></div>
+        </div>
+      </div>
+
+      <div class="toolbar-row">
+        <label>Zoom</label>
+        <input id="zoom" type="range" min="50" max="200" value="100" style="flex:1">
+        <div id="zoomVal">100%</div>
+      </div>
+
+      <div style="margin-top:12px">
+        <button id="done" class="btn">Finish Drawing</button>
+      </div>
+    </div>
+  </div>
+
+<script src="/js/common.js"></script>
+<script src="/js/draw.js"></script>
+</body>
+</html>

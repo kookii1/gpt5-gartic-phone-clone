@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Gartic — Room</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <script src="/socket.io/socket.io.js"></script>
+  <link rel="stylesheet" href="/css/styles.css">
+  <script defer src="https://kit.fontawesome.com/a2d9b5f2e0.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div style="display:flex;gap:12px;padding:12px;">
+    <div style="flex:1">
+      <h2>Room <span id="roomLabel"></span></h2>
+      <div style="display:flex;gap:8px;align-items:center">
+        <label>Rounds</label>
+        <input id="rounds" type="number" min="1" max="10" value="3" style="width:80px;padding:6px">
+        <label>Draw time (sec)</label>
+        <input id="drawTime" type="number" min="10" max="300" value="60" style="width:100px;padding:6px">
+        <button id="saveSettings" class="btn">Save</button>
+      </div>
+      <div style="margin-top:12px;">
+        <h3>Players</h3>
+        <div id="players" class="player-list"></div>
+      </div>
+      <div style="margin-top:12px;">
+        <button id="start" class="btn" style="background:#0a84ff">Start Game</button>
+        <button id="back" class="btn">Back</button>
+      </div>
+    </div>
+    <div style="width:360px">
+      <h3>Room Link</h3>
+      <input id="roomLink" readonly style="width:100%;padding:8px">
+      <button id="copyLink" class="btn" style="margin-top:8px">Copy Link</button>
+      <hr style="margin:12px 0">
+      <div>Host controls: Only host can start the game.</div>
+    </div>
+  </div>
+
+<script src="/js/common.js"></script>
+<script src="/js/room.js"></script>
+</script>
+</body>
+</html>
