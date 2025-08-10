@@ -25,7 +25,7 @@
       </div>
       <div style="margin-top:12px;">
         <button id="start" class="btn" style="background:#0a84ff">Start Game</button>
-        <button id="back" class="btn">Back</button>
+        <button id="back" class="btn" onclick="history.back()">Back</button>
       </div>
     </div>
     <div style="width:360px">
@@ -34,11 +34,11 @@
       <button id="copyLink" class="btn" style="margin-top:8px">Copy Link</button>
       <hr style="margin:12px 0">
       <div>Host controls: Only host can start the game.</div>
+      <div id="hostNote" style="color:#c00;font-size:13px;display:none;margin-top:6px">You are not the host.</div>
     </div>
   </div>
 
 <script src="/js/common.js"></script>
 <script src="/js/room.js"></script>
-</script>
 </body>
 </html>
